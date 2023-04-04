@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Queue;
+
 public class SimpleList {
     Object[] elements;
     int size;
@@ -40,10 +42,9 @@ public class SimpleList {
     public void add(int addIndex, Object newElement) {
 
         for (int index = size; index > addIndex; index--) {
-            elements[index] = elements[size - 1];
+            elements[index] = elements[index-1];
         }
         elements[addIndex] = newElement;
         size = size + 1;
     }
-
 }

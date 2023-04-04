@@ -73,23 +73,35 @@ class SimpleListTest {
     }
 
     @Test
-    void addElement() {
-        SimpleList simpleList = new SimpleList(new Object[]{"a", "b", "c", "d", "e", null}, 10);
-        simpleList.add(2, "z");
-        assertEquals("z", simpleList.get(2));
-        assertEquals("c", simpleList.get(3));
+    void addElementOnTheMiddle() {
+        SimpleList simpleList = new SimpleList(new Object[]{"a", "b", "c", "d", "e", null, null}, 6);
+        simpleList.add(3, "z");
+        assertEquals("z", simpleList.get(3));
+        assertEquals("b", simpleList.get(1));
+        assertEquals("c", simpleList.get(2));
         assertEquals("d", simpleList.get(4));
         assertEquals("e", simpleList.get(5));
-        assertEquals(6, simpleList.size);
+        assertEquals(7, simpleList.size);
     }
     @Test
     void addElementOnTheBeginning() {
-        SimpleList simpleList = new SimpleList(new Object[]{"a", "b", "c", "d", "e"}, 5);
+        SimpleList simpleList = new SimpleList(new Object[]{"a", "b", "c", "d", "e", null}, 5);
         simpleList.add(0, "z");
         assertEquals("z", simpleList.get(0));
         assertEquals("c", simpleList.get(3));
         assertEquals(6, simpleList.size);
     }
 
-
+    @Test
+    void addElementOnTheEnd() {
+        SimpleList simpleList = new SimpleList(new Object[]{"a", "b", "c", "d", "e", null}, 5);
+        simpleList.add(5, "z");
+        assertEquals("z", simpleList.get(5));
+        assertEquals("a", simpleList.get(0));
+        assertEquals("b", simpleList.get(1));
+        assertEquals("c", simpleList.get(2));
+        assertEquals("d", simpleList.get(3));
+        assertEquals("e", simpleList.get(4));
+        assertEquals(6, simpleList.size);
+    }
 }
