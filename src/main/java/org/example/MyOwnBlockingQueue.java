@@ -3,29 +3,30 @@ package org.example;
 public class MyOwnBlockingQueue {
 
     Object[] elements;
-    int length;
+    int size;
+    int addIndex = 1;
 
-    public MyOwnBlockingQueue(Object[] elements, int length) {
+    public MyOwnBlockingQueue(Object[] elements, int size) {
         this.elements = elements;
-        this.length = length;
+        this.size = size;
     }
 
-    public void ptu(Object newObject) {
-
+    public void put(Object newElement) {
+        for (int index = size; index > 1; index--) {
+            elements[index] = elements[index-1];
+        }
+        elements[addIndex] = newElement;
     }
 
     public Object take() {
-
         return null;
     }
 
 
     public void waitMethod() {
-
     }
 
     public void notifyMethod() {
-
     }
 
 }
